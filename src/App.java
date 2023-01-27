@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.List;
+
+import classe.*;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -5,6 +10,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class App extends Application{
+
+    public static List<Conta> accounts = new ArrayList<>();
+    public static List<Cliente> users = new ArrayList<>();
+    
     public static void main(String[] args) throws Exception {
         launch(args);
     }
