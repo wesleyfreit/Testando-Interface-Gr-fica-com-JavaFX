@@ -39,6 +39,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -50,18 +52,7 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="720.0" prefWidth="1200.0" style="-fx-background-color: #4F4F55;" VBox.vgrow="ALWAYS">
       <children>
-            <Button fx:id="botaoVenda" layoutX="241.0" layoutY="215.0" mnemonicParsing="false" onAction="#venderProdutos" prefHeight="121.0" prefWidth="173.0" style="-fx-background-color: #32CD55;" text=" Vender Produtos " textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="botaoVisualizacao" layoutX="485.0" layoutY="215.0" mnemonicParsing="false" onAction="#visualizarProdutos" prefHeight="121.0" prefWidth="173.0" style="-fx-background-color: #1E90EA;" text="Visualizar Produtos " textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+            <Button fx:id="botaoVisualizacao" layoutX="487.0" layoutY="300.0" mnemonicParsing="false" onAction="#visualizarProdutos" prefHeight="121.0" prefWidth="173.0" style="-fx-background-color: #1E90EA;" text="Visualizar Contas" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -69,7 +60,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="botaoCadastro" layoutX="733.0" layoutY="215.0" mnemonicParsing="false" onAction="#cadastrarProdutos" prefHeight="121.0" prefWidth="173.0" style="-fx-background-color: #9370DB;" text="Cadastrar Produtos " textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Button fx:id="botaoCadastro" layoutX="228.0" layoutY="300.0" mnemonicParsing="false" onAction="#cadastrarProdutos" prefHeight="121.0" prefWidth="173.0" style="-fx-background-color: #32CD55;" text="Cadastrar Contas " textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -77,7 +68,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="botaoReposicao" layoutX="241.0" layoutY="384.0" mnemonicParsing="false" onAction="#reporProdutos" prefHeight="121.0" prefWidth="173.0" style="-fx-background-color: #00AAAA;" text="  Repor  Produtos " textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Button fx:id="botaoRemocao" layoutX="746.0" layoutY="300.0" mnemonicParsing="false" onAction="#removerProdutos" prefHeight="121.0" prefWidth="173.0" style="-fx-background-color: #FF2222;" text=" Remover Contas" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -85,23 +76,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="botaoEdicao" layoutX="485.0" layoutY="384.0" mnemonicParsing="false" onAction="#editarProdutos" prefHeight="121.0" prefWidth="173.0" style="-fx-background-color: #FFA500;" text=" Editar  Produtos  " textAlignment="CENTER" textFill="WHITE" wrapText="true">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="botaoRemocao" layoutX="733.0" layoutY="384.0" mnemonicParsing="false" onAction="#removerProdutos" prefHeight="121.0" prefWidth="173.0" style="-fx-background-color: #FF2222;" text=" Remover Produtos" textAlignment="CENTER" textFill="WHITE" wrapText="true">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Text fill="WHITE" layoutX="378.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU EMPRESA">
+            <Text fill="WHITE" layoutX="378.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU BANCÁRIO">
                <font>
                   <Font name="System Bold" size="50.0" />
                </font>
@@ -116,19 +91,23 @@
                   <Label layoutX="181.0" layoutY="234.0" text="Nome" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
-                     </font></Label>
+                     </font>
+                  </Label>
                   <Label layoutX="182.0" layoutY="279.0" text="CPF" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
-                     </font></Label>
+                     </font>
+                  </Label>
                   <Label layoutX="181.0" layoutY="324.0" text="Conta" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
-                     </font></Label>
+                     </font>
+                  </Label>
                   <Label fx:id="textSaldo" layoutX="181.0" layoutY="369.0" text="Saldo" textFill="WHITE" visible="false">
                      <font>
                         <Font size="18.0" />
-                     </font></Label>
+                     </font>
+                  </Label>
                   <Accordion />
                   <TextField fx:id="campoNome" layoutX="254.0" layoutY="228.0" prefHeight="35.0" prefWidth="570.0" promptText="Digite o nome do titular">
                      <opaqueInsets>
@@ -164,8 +143,8 @@
                   </TextField>
                   <MenuButton fx:id="selectTipoConta" cache="true" depthTest="ENABLE" layoutX="183.0" layoutY="160.0" text="Selecione o tipo de Conta" textAlignment="CENTER">
                      <items>
-                        <MenuItem mnemonicParsing="false" onAction="#eventCP" text="Conta Poupança" />
-                        <MenuItem mnemonicParsing="false" onAction="#eventCC" text="Conta Corrente" />
+                        <MenuItem mnemonicParsing="false" onAction="#eventCP" text="Conta Corrente" />
+                        <MenuItem mnemonicParsing="false" onAction="#eventCC" text="Conta Poupança" />
                      </items>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -190,6 +169,32 @@
                         <Font size="18.0" />
                      </font>
                   </Button>
+               </children>
+            </Pane>
+            <Pane fx:id="menuVisualizacao" focusTraversable="true" layoutX="76.0" layoutY="62.0" prefHeight="569.0" prefWidth="995.0" style="-fx-background-color: gray; -fx-border-color: black; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-width: 0.5px;" visible="false">
+               <children>
+                  <Text fill="WHITE" layoutX="274.0" layoutY="74.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.5" text="Visualização dos Contas">
+                     <font>
+                        <Font name="System Bold" size="40.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="468.0" layoutY="515.0" mnemonicParsing="false" onAction="#closeVisualizar" text="Sair">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <TableView fx:id="table" prefHeight="493.0" prefWidth="995.0">
+                    <columns>
+                      <TableColumn fx:id="titularTable" prefWidth="398.0" text="Usuário" />
+                      <TableColumn fx:id="cpfTable" prefWidth="150.0" text="CPF" />
+                        <TableColumn fx:id="tipoContaTable" prefWidth="177.0" text="Tipo de Conta" />
+                        <TableColumn fx:id="contaTable" prefWidth="130.0" text="Conta" />
+                        <TableColumn fx:id="saldoTable" prefWidth="134.0" text="Saldo" />
+                    </columns>
+                  </TableView>
                </children>
             </Pane>
       </children>
